@@ -142,7 +142,7 @@ class TicTacToe:
             self.control_frame, 
             text="Load AI", 
             font=('Arial', 12), 
-            command=self.load_agents,
+            command=self.load_models,
             bg='#FFC107',
             fg='white'
         )
@@ -230,6 +230,7 @@ class TicTacToe:
             self.agent_o.reset_stats()
             
             # Start training
+            self.training_mode = True
             self.window.after(100, lambda: self.run_training(num_games))
             
         except ValueError as e:
@@ -237,6 +238,7 @@ class TicTacToe:
             self.train_button.config(state=tk.NORMAL)
             for button in self.buttons:
                 button.config(state=tk.NORMAL)
+            self.training_mode = False
 
     def run_training(self, num_games: int):
         """Execute the training process"""
@@ -356,8 +358,7 @@ class TicTacToe:
             plt.show()
             
         except Exception as e:
-            messagebox.showerror("Visualization Error", 
-                               f"Failed to plot learning progress: {str(e)}")
+            messagebox.showerror("Visualization Error", f"Failed to plot learning progress: {str(e)}")
 
     def check_winner(self) -> Optional[str]:
         """Check for a winner in the game"""
@@ -383,14 +384,14 @@ class TicTacToe:
         """Check if the board is full"""
         return "" not in self.board
 
-    def get_reward(self, winner: str) -> float:
-        """Calculate reward based on game outcome"""
-        if not winner:
-            return 0.1  # Small positive reward for non-terminal moves
-        elif winner == "Tie":
+    def get_reward(self, result: str) -> float:
+        """Calculate reward based on game result"""
+        if result == "X":
+            return 1.0
+        elif result == "O":
+            return -1.0
+        else:  # Tie
             return 0.0
-        else:
-            return 1.0 if winner == self.current_player else -1.0
 
     def make_move(self, position: int) -> bool:
         """Make a move and update the game state"""
@@ -579,16 +580,31 @@ class TicTacToe:
 
     def save_models(self):
         """Save AI models"""
-        os.makedirs("models", exist_ok=True)
-        self.agent_x.save_model("models/agent_x.pkl")
-        self.agent_o.save_model("models/agent_o.pkl")
-        messagebox.showinfo("Success", "Models saved successfully!")
-
-    def load_agents(self):
-        """Load both agents' Q-tables"""
         try:
-            self.agent_x.load_q_table()
-            self.agent_o.load_q_table()
+            models_dir = os.path.join(os.path.dirname(__file__), 'models')
+            os.makedirs(models_dir, exist_ok=True)
+            
+            agent_x_path = os.path.join(models_dir, 'agent_x.pkl')
+            agent_o_path = os.path.join(models_dir, 'agent_o.pkl')
+            
+            self.agent_x.save_model(agent_x_path)
+            self.agent_o.save_model(agent_o_path)
+            messagebox.showinfo("Success", "AI models saved successfully!")
+        except Exception as e:
+            messagebox.showerror("Error", f"Failed to save AI models: {str(e)}")
+
+    def load_models(self):
+        """Load AI models"""
+        try:
+            models_dir = os.path.join(os.path.dirname(__file__), 'models')
+            agent_x_path = os.path.join(models_dir, 'agent_x.pkl')
+            agent_o_path = os.path.join(models_dir, 'agent_o.pkl')
+            
+            if not os.path.exists(agent_x_path) or not os.path.exists(agent_o_path):
+                raise FileNotFoundError("Model files not found. Train the AI first.")
+            
+            self.agent_x.load_model(agent_x_path)
+            self.agent_o.load_model(agent_o_path)
             messagebox.showinfo("Success", "AI models loaded successfully!")
         except Exception as e:
             messagebox.showerror("Error", f"Failed to load AI models: {str(e)}")
