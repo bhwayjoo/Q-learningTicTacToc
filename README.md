@@ -71,6 +71,79 @@ The AI agents use Q-Learning, a reinforcement learning algorithm, to learn optim
   - Discount factor: Value of future rewards
   - Epsilon: Exploration vs exploitation trade-off
 
+## Webography
+
+### Reinforcement Learning Resources
+1. [Q-Learning Introduction - Towards Data Science](https://towardsdatascience.com/q-learning-for-beginners-d5757334386c)
+   - Comprehensive introduction to Q-Learning concepts
+   - Basic implementation examples
+
+2. [OpenAI Spinning Up - Key Papers in Deep RL](https://spinningup.openai.com/en/latest/spinningup/keypapers.html)
+   - Collection of important reinforcement learning papers
+   - Theoretical foundations of Q-Learning
+
+3. [Sutton & Barto - Reinforcement Learning Book](http://incompleteideas.net/book/the-book-2nd.html)
+   - Classic textbook on reinforcement learning
+   - Chapter 6: Temporal-Difference Learning
+
+### Python Implementation Resources
+4. [Tkinter Documentation - Python](https://docs.python.org/3/library/tkinter.html)
+   - Official Python Tkinter documentation
+   - GUI implementation guidelines
+
+5. [NumPy Documentation](https://numpy.org/doc/stable/)
+   - Array operations and mathematical functions
+   - Used for Q-table operations
+
+6. [Matplotlib Visualization Guide](https://matplotlib.org/stable/tutorials/index.html)
+   - Plotting and visualization tutorials
+   - Used for learning progress visualization
+
+### Game Development Resources
+7. [Tic Tac Toe Game Theory](https://en.wikipedia.org/wiki/Tic-tac-toe#Strategy)
+   - Game strategy and optimal play
+   - State space complexity analysis
+
+8. [Game Programming Patterns](http://gameprogrammingpatterns.com/)
+   - Software design patterns for games
+   - State management techniques
+
+### Additional Learning Materials
+9. [Deep Reinforcement Learning Course](https://huggingface.co/deep-rl-course/unit0/introduction)
+   - Advanced RL concepts and implementations
+   - Modern approaches to game AI
+
+10. [Stanford CS234: Reinforcement Learning](https://web.stanford.edu/class/cs234/)
+    - Academic course materials
+    - Theoretical foundations
+
+### Code Examples and Tutorials
+11. [GitHub - Q-Learning Examples](https://github.com/topics/q-learning)
+    - Open source implementations
+    - Community contributions
+
+12. [Real Python - Tkinter Tutorials](https://realpython.com/python-gui-tkinter/)
+    - GUI development best practices
+    - Event handling examples
+
+### Development Tools
+13. [Python Type Hints Documentation](https://docs.python.org/3/library/typing.html)
+    - Type annotation guidelines
+    - Code maintainability
+
+14. [Pickle Documentation](https://docs.python.org/3/library/pickle.html)
+    - Object serialization
+    - Model saving/loading implementation
+
+### Best Practices and Standards
+15. [Python Style Guide (PEP 8)](https://www.python.org/dev/peps/pep-0008/)
+    - Code formatting standards
+    - Naming conventions
+
+16. [Clean Code in Python](https://github.com/zedr/clean-code-python)
+    - Python-specific clean code principles
+    - Code organization guidelines
+
 ## Contributing
 
 Feel free to submit issues, fork the repository, and create pull requests for any improvements.
