@@ -74,7 +74,7 @@ The AI agents use Q-Learning, a reinforcement learning algorithm, to learn optim
 ## Webography
 
 ### Reinforcement Learning Resources
-1. [Q-Learning Introduction - Towards Data Science](https://towardsdatascience.com/q-learning-for-beginners-d5757334386c)
+1. [Q-Learning Introduction - Towards Data Science](https://medium.com/@goldengrisha/a-beginners-guide-to-q-learning-understanding-with-a-simple-gridworld-example-2b6736e7e2c9#:~:text=The%20goal%20of%20Q%2Dlearning,action%20in%20a%20given%20state.)
    - Comprehensive introduction to Q-Learning concepts
    - Basic implementation examples
 
